@@ -18,6 +18,13 @@ return [
 	'home' => 'ホーム',
 	'login' => 'ログイン',
 	'logged' => 'ログイン中',
+	'signout' => 'サインアウト',
+	'online' => 'オンライン',
+	'search' => '検索',
+	'notifications' => '通知',
+	'viewall' => 'すべて表示',
+	'tabmessages' => 'メッセージ',
+	'profile' => 'プロフィール',
 
 	// email
 	'passwordclickreset' => 'passwordclickreset',
