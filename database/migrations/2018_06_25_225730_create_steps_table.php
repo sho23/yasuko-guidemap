@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateStepsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,23 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('steps', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('post_id')->unsigned();
+            $table->integer('order');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('status');
-            $table->integer('role');
-            $table->rememberToken();
+            $table->string('img_url')->nullable();
+            $table->string('iframe_url')->nullable();
+            $table->string('memo')->nullable();
+            $table->boolean('publish_flag')->default(false);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->softDeletes();
+            $table->foreign('post_id')
+                    ->references('id')
+                    ->on('posts')
+                    ->onDelete('cascade');
         });
     }
 
@@ -34,6 +40,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('steps');
     }
 }
