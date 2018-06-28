@@ -34,14 +34,24 @@
             <li class="header">header</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('message.home') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>anotherlink</span></a></li>
+            <li><a href="#"><i class='fa fa-link'></i> <span>道案内</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>出口案内</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">linklevel2</a></li>
-                    <li><a href="#">linklevel2</a></li>
+                    <li><a href="{{ action('TracksController@index') }}">路線一覧</a></li>
+                    <li><a href="#">駅一覧</a></li>
+                    <li><a href="#">出口一覧</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>タグなど</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">タグ一覧</a></li>
+                    <li><a href="{{ action('AreasController@index') }}">エリア一覧</a></li>
+                    <li><a href="#">カテゴリ一覧</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class='fa fa-link'></i> <span>ユーザー一覧</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
